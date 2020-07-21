@@ -13,15 +13,14 @@ Connect your [Travis CI](https://travis-ci.com) workflows to [BuildPulse][buildp
     ```yaml
     after_script:
       # Upload test results to BuildPulse for flaky test detection
-      - export BUILDPULSE_ACCOUNT_ID=<buildpulse-account-id>
-      - export BUILDPULSE_REPOSITORY_ID=<buildpulse-repository-id>
-      - export BUILDPULSE_REPORT_PATH=<path-to-directory-containing-xml-reports>
-      - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Workshop64/buildpulse-travis-ci/main/uploader-for-ubuntu.sh)"
+      - curl -fsSL https://github.com/buildpulse/test-reporter/releases/latest/download/test-reporter-linux-amd64 > ./buildpulse-test-reporter
+      - chmod +x ./buildpulse-test-reporter
+      - ./buildpulse-test-reporter submit <path> --account-id <buildpulse-account-id> --repository-id <buildpulse-repository-id>
     ```
 
     If you already have an `after_script` clause in your `.travis.yml` file, append the steps above to your existing `after_script` clause.
 
-4. In your `.travis.yml` file, replace `<buildpulse-account-id>` and `<buildpulse-repository-id>` with your account ID and repository ID from [buildpulse.io][]
-5. Also in your `.travis.yml` file, replace `<path-to-directory-containing-xml-reports>` with the actual path containing the XML reports for your test results
+4. On the last line, replace `<path>` with the actual path containing the XML reports for your test results
+5. Also on the last line, replace `<buildpulse-account-id>` and `<buildpulse-repository-id>` with your account ID and repository ID from [buildpulse.io][]
 
 [buildpulse.io]: https://buildpulse.io
