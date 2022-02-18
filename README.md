@@ -13,7 +13,7 @@ Connect your [Travis CI](https://travis-ci.com) workflows to [BuildPulse][buildp
     ```yaml
     after_script:
       # Upload test results to BuildPulse for flaky test detection
-      - curl -fsSL --retry 3 --retry-connrefused https://get.buildpulse.io/test-reporter-linux-amd64 > ./buildpulse-test-reporter
+      - curl -fsSL --retry 3 https://get.buildpulse.io/test-reporter-linux-amd64 > ./buildpulse-test-reporter
       - chmod +x ./buildpulse-test-reporter
       - ./buildpulse-test-reporter submit <path> --account-id <buildpulse-account-id> --repository-id <buildpulse-repository-id>
     ```
