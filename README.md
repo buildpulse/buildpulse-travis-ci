@@ -1,4 +1,4 @@
-# Travis CI Integration for BuildPulse [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/Workshop64/buildpulse-travis-ci/main/LICENSE)
+# Travis CI Integration for BuildPulse [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/buildpulse/buildpulse-travis-ci/main/LICENSE)
 
 Connect your [Travis CI](https://travis-ci.com) workflows to [BuildPulse][buildpulse.io] to help you detect, track, and eliminate flaky tests.
 
